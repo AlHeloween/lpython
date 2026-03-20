@@ -22,3 +22,4 @@
 
 - Use `logs/cmd_runner/...` artifacts as the oracle for long-running command
   output when possible.
+- Never use `cmd /c "..."` directly. Always use `powershell -c 'cmd /c "..."'` for Windows command execution.
