@@ -1,9 +1,10 @@
-from lpython import i32
+from lpython import i32, str
 
 
 def test_list_iter():
     lst: list[i32] = [1, 2, 3, 4, 5]
     total: i32 = 0
+    x: i32
     for x in lst:
         total += x
     assert total == 15
@@ -13,6 +14,7 @@ def test_list_iter():
 def test_string_iter():
     s: str = "hello"
     chars: list[str] = []
+    ch: str
     for ch in s:
         chars.append(ch)
     assert chars == ["h", "e", "l", "l", "o"]
@@ -21,6 +23,7 @@ def test_string_iter():
 
 def test_range_iter():
     sum1: i32 = 0
+    i: i32
     for i in range(5):
         sum1 += i
     assert sum1 == 10
@@ -30,6 +33,8 @@ def test_range_iter():
 def test_nested():
     mat: list[list[i32]] = [[1, 2], [3, 4]]
     total: i32 = 0
+    row: list[i32]
+    elem: i32
     for row in mat:
         for elem in row:
             total += elem
@@ -40,6 +45,7 @@ def test_nested():
 def test_empty():
     lst2: list[i32] = []
     count: i32 = 0
+    _: i32
     for _ in lst2:
         count += 1
     assert count == 0
@@ -49,6 +55,7 @@ def test_empty():
 def test_single():
     lst3: list[i32] = [42]
     val: i32 = 0
+    x: i32
     for x in lst3:
         val = x
     assert val == 42
@@ -57,6 +64,7 @@ def test_single():
 
 def test_step_range():
     sum2: i32 = 0
+    i: i32
     for i in range(0, 10, 2):
         sum2 += i
     assert sum2 == 20
@@ -65,6 +73,7 @@ def test_step_range():
 
 def test_negative_step():
     sum3: i32 = 0
+    i: i32
     for i in range(10, 0, -2):
         sum3 += i
     assert sum3 == 30
