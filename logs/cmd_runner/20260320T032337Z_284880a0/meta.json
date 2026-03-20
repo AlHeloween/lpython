@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "cmd",
+    "/c",
+    "call \"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\Tools\\VsDevCmd.bat\" -arch=x64 && cmake -DWITH_RUNTIME_STACKTRACE=yes . && cmake --build . --target lpython"
+  ],
+  "backend": "windows-conpty",
+  "cols": 120,
+  "created_utc": "2026-03-20T03:23:37Z",
+  "cwd": "D:\\zPython\\lpython",
+  "env_overrides": {},
+  "max_log_mb": 50,
+  "rows": 30,
+  "terminal_host": "conhost",
+  "timeout_s": 3600
+}

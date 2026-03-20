@@ -1,0 +1,164 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\Users\Alexander\AppData\Local\micromamba\micromamba.exe[?25h START TEST: complex1.py
+ START TEST: complex2.py
+ START TEST: constants1.py
+ START TEST: list1.py
+ START TEST: tuple1.py
+ START TEST: dictionary1.py
+ START TEST: expr1.py
+ START TEST: expr2.py
+ START TEST: expr4.py
+ START TEST: expr6.py
+ START TEST: expr7.py
+ START TEST: expr8.py
+ START TEST: expr10.py
+list1.py * ast PASS
+complex1.py * ast PASS
+tuple1.py * ast PASS
+expr1.py * ast PASS
+constants1.py * ast PASS
+expr8.py * ast PASS
+expr6.py * ast PASS
+expr2.py * ast PASS
+expr4.py * ast PASS
+expr7.py * ast PASS
+dictionary1.py * ast PASS
+expr10.py * ast PASS
+list1.py * asr PASS
+ START TEST: expr12.py
+tuple1.py * asr PASS
+ START TEST: expr13.py
+expr6.py * asr PASS
+expr1.py * asr PASS
+ START TEST: expr14.py
+expr8.py * asr PASS
+expr2.py * asr PASS
+dictionary1.py * asr PASS
+ START TEST: expr15.py
+expr4.py * asr PASS
+expr6.py * cpp PASS
+expr12.py * ast PASS
+expr13.py * ast PASS
+expr2.py * cpp PASS
+expr14.py * llvm PASS
+expr6.py * python PASS
+ START TEST: expr16.py
+expr8.py * cpp PASS
+ START TEST: expr17.py
+ START TEST: expr_01.py
+ START TEST: ../integration_tests/array_01_decl.py
+ START TEST: ../integration_tests/array_02_decl.py
+expr4.py * python PASS
+expr12.py * asr PASS
+expr2.py * python PASS
+expr14.py * python PASS
+expr17.py * python PASS
+expr16.py * asr PASS
+expr_01.py * ast PASS
+expr2.py * wat PASS
+expr12.py * cpp PASS
+expr14.py * wat PASS
+expr_01.py * asr PASS
+expr_01.py * llvm PASS
+expr_01.py * llvm_dbg PASS
+Traceback (most recent call last):
+  File "D:\zPython\lpython\run_tests.py", line 163, in <module>
+    tester_main("LPython", single_test)
+  File "D:\zPython\lpython\libasr\src\libasr\compiler_tester\tester.py", line 644, in tester_main
+    for f in futures:
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 609, in result_iterator       
+    yield fs.pop().result()
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 446, in result
+    return self.__get_result()
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 391, in __get_result
+    raise self._exception
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\zPython\lpython\run_tests.py", line 80, in single_test
+    run_test(
+  File "D:\zPython\lpython\libasr\src\libasr\compiler_tester\tester.py", line 509, in run_test
+    raise RunException(
+compiler_tester.tester.RunException: Testing with reference output failed.
+[31m[1mcomplex1.py * asr[m[K
+The JSON metadata differs against reference results
+Reference JSON: tests\reference\asr-complex1-f26c460.json
+Output JSON:    tests\output\asr-complex1-f26c460.json
+Omitting 6 identical items
+ACTUAL != REFERENCE
+Differing items:
+{'stderr_hash': '20f3440975a691f275d080b0011da6bea0166eceafdf5f9b8bf78d1c'} != {'stderr_hash': None}
+{'stdout': None} != {'stdout': 'asr-complex1-f26c460.stdout'}
+{'returncode': 2} != {'returncode': 0}
+{'stderr': 'asr-complex1-f26c460.stderr'} != {'stderr': None}
+{'stdout_hash': None} != {'stdout_hash': '5a06c1c3f28ac5f7314486b12921b371b8c43a63c9733ef49291cb0a'}
+=== MISSING OUTPUT STDOUT ===
+Expected stdout to be generated but it was not.
+
+=== EXPECTED CONTENT (first 10 lines from reference) ===
+(TranslationUnit
+    (SymbolTable
+        1
+        {
+            __main__:
+                (Module
+                    (SymbolTable
+                        2
+                        {
+                            test:
+
+... (861 more lines, see tests\reference\asr-complex1-f26c460.stdout)
+
+=== UNEXPECTED OUTPUT STDERR ===
+Did not expect stderr to be generated but it was.
+
+=== STDERR DIFF ===
+Reference: (missing - expected no stderr)
+Output:    tests\output\asr-complex1-f26c460.stderr
+0a1,17
+> warning: The module 'lpython_builtin' located in $DIR\src\bin/../runtime/lpython_builtin.py cannot be loaded
+>   --> tests/complex1.py:11:13
+>    |
+> 11 |     c = c32(complex())
+>    |             ^^^^^^^^^ imported here
+>
+> syntax error: Token '' (of type 'dedent') is unexpected here
+>    --> $DIR\src\bin/../runtime/lpython_builtin.py:197:38
+>     |
+> 197 |    Returns the binary representation of an integer `n`.
+>     |                                      ^
+>
+> semantic error: The file '$DIR\src\bin/../runtime/lpython_builtin.py' failed to parse
+>   --> tests/complex1.py:11:13
+>    |
+> 11 |     c = c32(complex())
+>    |             ^^^^^^^^^
+
+[?9001l[?1004l

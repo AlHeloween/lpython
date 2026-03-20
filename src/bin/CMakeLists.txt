@@ -78,11 +78,11 @@ if (HAVE_BUILD_TO_WASM)
     set_target_properties(lpython PROPERTIES LINK_FLAGS ${WASM_LINK_FLAGS})
 endif()
 
-install(TARGETS lpython
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    ARCHIVE DESTINATION share/lpython/lib
-    LIBRARY DESTINATION share/lpython/lib
+install(PROGRAMS "$<TARGET_FILE:lpython>"
+    DESTINATION ${CMAKE_INSTALL_BINDIR}
+    RENAME lpython-real.exe
 )
+install(CODE "file(REMOVE \"${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/lpython.exe\")")
 
 set_target_properties(lpython PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/$<0:>
@@ -94,9 +94,9 @@ if (WITH_INTRINSIC_MODULES)
         add_custom_command(
             OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/../runtime/${name}.pyc
             COMMAND ${CMAKE_CURRENT_BINARY_DIR}/lpython
-            ARGS --disable-main -c ${CMAKE_CURRENT_SOURCE_DIR}/../runtime/${name}.py -o ${name}.o
+            ARGS --disable-main -c ${CMAKE_CURRENT_BINARY_DIR}/../runtime/${name}.py -o ${name}.o
             WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/../runtime
-            DEPENDS lpython ${CMAKE_CURRENT_SOURCE_DIR}/../runtime/${name}.py ${ARGN}
+            DEPENDS lpython ${CMAKE_CURRENT_BINARY_DIR}/../runtime/${name}.py ${ARGN}
             COMMENT "LPython Compiling ${name}.py")
     endmacro(LPYTHON_COMPILE_MODULE)
 

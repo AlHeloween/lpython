@@ -1,0 +1,19 @@
+{
+  "backend": "windows-conpty",
+  "exit_code": 0,
+  "finished_utc": "2026-03-19T18:51:07Z",
+  "log": {
+    "bytes_dropped": 0,
+    "bytes_written": 1935,
+    "limit_bytes": 52428800,
+    "truncated": false
+  },
+  "notes": "finished",
+  "pids": [
+    29024
+  ],
+  "started_utc": "2026-03-19T18:51:06Z",
+  "status": "finished",
+  "stopped_utc": null,
+  "timeout_utc": null
+}

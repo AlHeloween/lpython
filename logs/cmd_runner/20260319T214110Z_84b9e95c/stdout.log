@@ -1,0 +1,40 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\WINDOWS\system32\cmd.exe[?25h]0;Administrator: C:\WINDOWS\system32\cmd.exe[?25l[33m[1mwarning[m[1m: The module 'math' located in D:\zPython\lpython\src\bin/../runtime/math.py cannot be loaded[22m
+ [34m[1m-->[m integration_tests\test_math_03.py:1:1
+  [34m[1m|
+1 |[m from math import (cbrt, exp2)
+  [34m[1m|[m [33m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ imported here[31m[7;1Hsemantic error[m[1m: Type mismatch in assignment, the types must be compatible[22m
+   [34m[1m-->[m D:\zPython\lpython\src\bin/../runtime/math.py:783:24
+    [34m[1m|
+783 |[m     greater:f64 = max(fabs(a),fabs(b))
+    [34m[1m|[m[24X[31m[1m[24C^^^^^   ^^^^^^^ type mismatch ('f64' and 'f32')[m[1m[14;1HNote[22m: Please report unclear, confusing or incorrect messages as bugs at
+https://github.com/lfortran/lfortran/issues.
+[?25h[?9001l[?1004l

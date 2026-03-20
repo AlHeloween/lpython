@@ -1,0 +1,45 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\Users\Alexander\AppData\Local\micromamba\micromamba.exe[?25hpython=C:\Users\Alexander\micromamba\envs\lpython\python.exe
+[?25llpython=D:\zPython\lpython\lpython.cmd
+cpython_benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf_cpython.py
+lpython_benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf.py
+repeats=3
+mode=binary-runtime[8;1H[?25h]0;Administrator: C:\Users\Alexander\AppData\Local\micromamba\micromamba.exelpython_binary=D:\zPython\lpython\integration_tests\benchmark_build\benchmark_math_perf.exe
+
+warmup=0.235428s
+[suite] workloads=factorial_repeat,sqrt_repeat,floor_ceil_repeat,frexp_repeat
+[?25lCPython: mean=4.399883s min=4.113142s max=4.673539s
+LPythonBinary: mean=0.227119s min=0.185625s max=0.275142s
+speedup=19.37x
+checksum_factorial_repeat_match=True
+checksum_floor_ceil_repeat_match=True
+checksum_frexp_repeat_match=True
+checksum_sqrt_repeat_match=True[20;1H[?25h[?9001l[?1004l

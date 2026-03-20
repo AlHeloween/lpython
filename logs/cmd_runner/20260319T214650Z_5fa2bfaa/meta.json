@@ -1,0 +1,16 @@
+{
+  "argv": [
+    ".\\bin\\lpython.cmd",
+    "-c",
+    "import math; print(math.expm1(1.0)); print(math.pi)"
+  ],
+  "backend": "windows-conpty",
+  "cols": 120,
+  "created_utc": "2026-03-19T21:46:51Z",
+  "cwd": "D:\\zPython\\lpython\\inst",
+  "env_overrides": {},
+  "max_log_mb": 50,
+  "rows": 30,
+  "terminal_host": "conhost",
+  "timeout_s": 600
+}

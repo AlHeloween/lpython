@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "micromamba",
+    "run",
+    "-n",
+    "lpython",
+    "python",
+    "tools\\run_math_benchmark.py",
+    "--repeats",
+    "2",
+    "--scenario",
+    "exp_sum"
+  ],
+  "backend": "windows-conpty",
+  "cols": 120,
+  "created_utc": "2026-03-19T19:40:13Z",
+  "cwd": "D:\\zPython\\lpython",
+  "env_overrides": {},
+  "max_log_mb": 50,
+  "rows": 30,
+  "terminal_host": "conhost",
+  "timeout_s": 1800
+}

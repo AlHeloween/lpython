@@ -1,0 +1,43 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python=C:\Users\Alexander\micromamba\envs\lpython\python.exe
+lpython=D:\zPython\lpython\lpython.cmd
+cpython_benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf_cpython.py
+lpython_benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf.py
+repeats=2Traceback (most recent call last):
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 97, in <module>
+    raise SystemExit(main())
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 81, in main
+    dt, out = run_once(lp_cmd)
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 28, in run_once
+    raise RuntimeError(
+RuntimeError: command failed (1): D:\zPython\lpython\lpython.cmd D:\zPython\lpython\integration_tests\benchmark_math_peyInternal Compiler Error: Unhandled exception
+Traceback (most recent call last):
+LCompilersException: visit_JoinedStr() not implemented

@@ -1,0 +1,55 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\Users\Alexander\AppData\Local\micromamba\micromamba.exe[?25h[0/1] Install the project...[K-- Install configuration: "Release"
+-- Installing: D:/zPython/lpython/inst/./install-lpython.ps1
+-- Up-to-date: D:/zPython/lpython/inst/./uninstall-lpython.ps1
+-- Installing: D:/zPython/lpython/inst/bin/lpython.cmd
+-- Installing: D:/zPython/lpython/inst/./README.md
+-- Up-to-date: D:/zPython/lpython/inst/./LICENSE
+-- Up-to-date: D:/zPython/lpython/inst/bin/zlib.dll
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/cmath.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/lpython_builtin.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/lpython_intrinsic_numpy.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/lpython_parser.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/math.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/os.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/platform.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/random.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/statistics.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/string.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/sys.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/time.py
+-- Installing: D:/zPython/lpython/inst/share/lpython/lib/lpython/lpython.py
+-- Up-to-date: D:/zPython/lpython/inst/share/lfortran/dwarf_convert.py
+-- Up-to-date: D:/zPython/lpython/inst/share/lfortran/dat_convert.py
+-- Up-to-date: D:/zPython/lpython/inst/bin/lpython-real.exe
+-- Up-to-date: D:/zPython/lpython/inst/share/lpython/lib/lpython_runtime.lib
+[?25l-- Up-to-date: D:/zPython/lpython/inst/bin/lpython_runtime.dll
+-- Up-to-date: D:/zPython/lpython/inst/share/lpython/lib/lpython_runtime_static.lib[28;1H[?25h[?9001l[?1004l

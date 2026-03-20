@@ -1,0 +1,33 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\Users\Alexander\AppData\Local\micromamba\micromamba.exe[?25h START TEST: complex1.py
+complex1.py * asr PASS
+TESTS PASSED
+[?9001l[?1004l

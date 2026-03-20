@@ -1,0 +1,40 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\Users\Alexander\AppData\Local\micromamba\micromamba.exe[?25h]0;Administrator: C:\Users\Alexander\AppData\Local\micromamba\micromamba.exeRuntime debug-info tests are skipped on Windows because this build does not enable runtime stacktraces.
+ START TEST: runtime_errors/test_assert_01.py
+runtime_errors/test_assert_01.py * run_with_dbg   SKIPPED as requested
+ START TEST: runtime_errors/test_assert_03.py
+runtime_errors/test_assert_03.py * run_with_dbg   SKIPPED as requested
+ START TEST: runtime_errors/test_quit_01.py
+ START TEST: runtime_errors/test_raise_01.py
+runtime_errors/test_quit_01.py * run_with_dbg   SKIPPED as requested
+runtime_errors/test_raise_01.py * run_with_dbg   SKIPPED as requested
+TESTS PASSED
+[?9001l[?1004l

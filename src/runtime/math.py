@@ -13,7 +13,11 @@ def modf(x: f64) -> tuple[f64, f64]:
 
     Both results carry the sign of x and are floats.
     """
-    return (x - f64(int(x)), float(int(x)))
+    integral: f64
+    integral = f64(trunc(x))
+    if integral == 0.0:
+        integral = copysign(0.0, x)
+    return (x - integral, integral)
 
 @overload
 def factorial(x: i32) -> i32:
@@ -452,9 +456,7 @@ def pow(x: i32, y: i32) -> i32:
 
 @overload
 def ldexp(x: f64, i: i32) -> f64:
-    result: f64
-    result = x * f64(2**i)
-    return result
+    return _lfortran_dldexp(x, i)
 
 
 
@@ -507,49 +509,52 @@ def copysign(x: f64, y: f64) -> f64:
     """
     Return `x` with the sign of `y`.
     """
-    if y > 0.0 or (y == 0.0 and atan2(y, -1.0) > 0.0):
-        return fabs(x)
-    else:
-        return -fabs(x)
+    return _lfortran_dcopysign(x, y)
 
 
 def hypot(x: i32, y: i32) -> f64:
     """
     Returns the hypotenuse of the right triangle with sides `x` and `y`.
     """
-    return sqrt(f64(1.0)*f64(x**2 + y**2))
+    return _lfortran_dhypot(f64(x), f64(y))
 
 @overload
 def trunc(x: f64) -> i64:
     """
     Return x with the fractional part removed, leaving the integer part.
     """
-    if x > f64(0):
-        return floor(x)
-    else:
-        return ceil(x)
+    return i64(_lfortran_dtrunc(x))
 
 @overload
 def trunc(x: f32) -> i32:
     """
     Return x with the fractional part removed, leaving the integer part.
     """
-    if x > f32(0):
-        return floor(x)
-    else:
-        return ceil(x)
+    return i32(_lfortran_strunc(x))
+
+@ccall
+def _lfortran_strunc(x: f32) -> f32:
+    pass
+
+@ccall
+def _lfortran_dtrunc(x: f64) -> f64:
+    pass
+
+@ccall
+def _lfortran_dsqrt(x: f64) -> f64:
+    pass
 
 def sqrt(x: f64) -> f64:
     """
     Returns square root of a number x
     """
-    return x**(1/2)
+    return _lfortran_dsqrt(x)
 
 def cbrt(x: f64) -> f64:
     """
     Returns cube root of a number x
     """
-    return x**(1/3)
+    return _lfortran_dcbrt(x)
 
 @ccall
 def _lfortran_dsin(x: f64) -> f64:
@@ -587,7 +592,7 @@ def log10(x: f64) -> f64:
     return _lfortran_dlog10(x)
 
 def log2(x: f64) -> f64:
-    return _lfortran_dlog(x)/_lfortran_dlog(2.0)
+    return _lfortran_dlog2(x)
 
 @ccall
 def _lfortran_derf(x: f64) -> f64:
@@ -688,8 +693,19 @@ def atanh(x: f64) -> f64:
     return _lfortran_datanh(x)
 
 
+@ccall
+def _lfortran_dlog1p(x: f64) -> f64:
+    pass
+
+@ccall
+def _lfortran_dexpm1(x: f64) -> f64:
+    pass
+
+def expm1(x: f64) -> f64:
+    return _lfortran_dexpm1(x)
+
 def log1p(x: f64) -> f64:
-    return log(1.0 + x)
+    return _lfortran_dlog1p(x)
 
 
 def fmod(x: f64, y: f64) -> f64:
@@ -704,11 +720,31 @@ def _lfortran_dfmod(x: f64, y: f64) -> f64:
 
 
 def remainder(x: f64, y: f64) -> f64:
-    q: i64
-    q = int(x/y)
-    if x - y*f64(q) > y*f64(q + i64(1)) - x:
-        return x - y*f64(q + i64(1))
-    return x - y*f64(q)
+    return _lfortran_dremainder(x, y)
+
+@ccall
+def _lfortran_dldexp(x: f64, exp: i32) -> f64:
+    pass
+
+@ccall
+def _lfortran_dcopysign(x: f64, y: f64) -> f64:
+    pass
+
+@ccall
+def _lfortran_dhypot(x: f64, y: f64) -> f64:
+    pass
+
+@ccall
+def _lfortran_dcbrt(x: f64) -> f64:
+    pass
+
+@ccall
+def _lfortran_dlog2(x: f64) -> f64:
+    pass
+
+@ccall
+def _lfortran_dremainder(x: f64, y: f64) -> f64:
+    pass
 
 
 @overload
@@ -717,12 +753,15 @@ def frexp(x:f64) -> tuple[f64,i16]:
     Return the mantissa and exponent of x as the pair (m, e).
     m is a float and e is an integer such that x == m * 2**e exactly.
     '''
-    exponent: i16 = i16(0)
-    x_: f64 = x
-    while f64(fabs(x_)) > f64(1.0):
-        exponent += i16(1)
-        x_ /= 2.0
-    return x_, exponent
+    exponent64: i64
+    mantissa: f64
+    abs_x: f64
+    if x == 0.0:
+        return 0.0, i16(0)
+    abs_x = fabs(x)
+    exponent64 = floor(log2(abs_x)) + i64(1)
+    mantissa = ldexp(x, -i32(exponent64))
+    return mantissa, i16(exponent64)
 
 
 @overload
@@ -731,12 +770,15 @@ def frexp(x:f32) -> tuple[f32,i8]:
     Return the mantissa and exponent of x as the pair (m, e).
     m is a float and e is an integer such that x == m * 2**e exactly.
     '''
-    exponent: i8 = i8(0)
-    x_: f32 = x
-    while f32(fabs(x_)) > f32(1.0):
-        exponent += i8(1)
-        x_ /= f32(2.0)
-    return x_, exponent
+    exponent32: i32
+    mantissa: f32
+    abs_x: f32
+    if x == f32(0.0):
+        return f32(0.0), i8(0)
+    abs_x = fabs(x)
+    exponent32 = i32(floor(log2(f64(abs_x))) + i64(1))
+    mantissa = f32(ldexp(f64(x), -exponent32))
+    return mantissa, i8(exponent32)
 
 
 @overload

@@ -1,0 +1,35 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\Users\Alexander\AppData\Local\micromamba\micromamba.exe[?25hCPack: Create package using ZIP
+CPack: Install projects
+CPack: - Install project: lpython []
+CPack: Create package
+CPack: - package: D:/zPython/lpython/lpython-0.1-git-Windows-standalone.zip generated.
+[?9001l[?1004l

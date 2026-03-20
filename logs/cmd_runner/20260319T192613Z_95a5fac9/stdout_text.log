@@ -1,0 +1,45 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python=C:\Users\Alexander\micromamba\envs\lpython\python.exe
+lpython=D:\zPython\lpython\lpython.cmd
+benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf.py
+repeats=2Traceback (most recent call last):
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 102, in <module>
+    raise SystemExit(main())
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 87, in main
+    dt, out = run_once(lp_cmd)
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 35, in run_once
+    raise RuntimeError(
+RuntimeError: command failed (2): D:\zPython\lpython\lpython.cmd D:\zPython\lpython\integration_tests\benchmark_math_pe0semantic error: int type is not supported yet. 
+ --> D:\zPython\lpython\integration_tests\benchmark_math_perf.py:6:20
+  |
+6 | def exp_sum(iters: int) -> float:
+  |^^^ Hint: Use i8, i16, i32 or i64 for now. Note: Please report unclear, confusing or incorrect messages as bugs at
+https://github.com/lfortran/lfortran/issues.

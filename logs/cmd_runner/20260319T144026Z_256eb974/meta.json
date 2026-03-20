@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "micromamba",
+    "run",
+    "-n",
+    "lpython",
+    "python",
+    "run_tests.py",
+    "--no-color",
+    "-s",
+    "-t",
+    "complex1.py",
+    "-b",
+    "asr"
+  ],
+  "backend": "windows-conpty",
+  "cols": 120,
+  "created_utc": "2026-03-19T14:40:27Z",
+  "cwd": "D:\\zPython\\lpython",
+  "env_overrides": {},
+  "max_log_mb": 50,
+  "rows": 30,
+  "terminal_host": "conhost",
+  "timeout_s": 900
+}

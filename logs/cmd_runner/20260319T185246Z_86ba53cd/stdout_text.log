@@ -1,0 +1,34 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CPack: Create package using ZIP
+CPack: Install projects
+CPack: - Install project: lpython []
+CPack: Create package
+CPack: - package: D:/zPython/lpython/lpython-0.1-git-Windows-standalone.zip generated.

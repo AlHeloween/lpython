@@ -1,0 +1,554 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\Users\Alexander\AppData\Local\micromamba\micromamba.exe[?25h START TEST: complex1.py
+ START TEST: complex2.py
+ START TEST: constants1.py
+ START TEST: list1.py
+ START TEST: tuple1.py
+ START TEST: dictionary1.py
+ START TEST: expr1.py
+ START TEST: expr2.py
+ START TEST: expr4.py
+ START TEST: expr6.py
+ START TEST: expr7.py
+ START TEST: expr8.py
+ START TEST: expr10.py
+dictionary1.py * ast PASS
+complex1.py * ast PASS
+list1.py * ast PASS
+tuple1.py * ast PASS
+constants1.py * ast PASS
+expr6.py * ast PASS
+expr8.py * ast PASS
+expr2.py * ast PASS
+expr1.py * ast PASS
+expr7.py * ast PASS
+expr4.py * ast PASS
+expr10.py * ast PASS
+dictionary1.py * asr PASS
+ START TEST: expr12.py
+tuple1.py * asr PASS
+ START TEST: expr13.py
+constants1.py * asr PASS
+ START TEST: expr14.py
+expr1.py * asr PASS
+ START TEST: expr15.py
+complex1.py * asr PASS
+ START TEST: expr16.py
+expr6.py * asr PASS
+expr8.py * asr PASS
+expr2.py * asr PASS
+expr7.py * asr PASS
+list1.py * asr PASS
+ START TEST: expr17.py
+expr4.py * asr PASS
+expr10.py * asr PASS
+ START TEST: expr_01.py
+expr14.py * llvm PASS
+expr12.py * ast PASS
+expr13.py * ast PASS
+expr15.py * cpp PASS
+ START TEST: ../integration_tests/array_01_decl.py
+expr6.py * cpp PASS
+expr16.py * asr PASS
+ START TEST: ../integration_tests/array_02_decl.py
+expr2.py * cpp PASS
+expr7.py * cpp PASS
+expr17.py * python PASS
+ START TEST: ../integration_tests/expr_07.py
+expr8.py * cpp PASS
+ START TEST: ../integration_tests/test_numpy_03.py
+expr4.py * python PASS
+ START TEST: ../integration_tests/test_numpy_04.py
+expr_01.py * ast PASS
+expr13.py * asr PASS
+ START TEST: ../integration_tests/expr_01.py
+expr14.py * python PASS
+../integration_tests/array_01_decl.py * asr PASS
+ START TEST: ../integration_tests/expr_09.py
+expr12.py * asr PASS
+expr6.py * python PASS
+ START TEST: ../integration_tests/elemental_01.py
+../integration_tests/expr_07.py * asr PASS
+ START TEST: ../integration_tests/expr_10.py
+expr2.py * python PASS
+../integration_tests/array_02_decl.py * asr PASS
+ START TEST: ../integration_tests/expr_11.py
+../integration_tests/expr_01.py * asr PASS
+expr7.py * c PASS
+ START TEST: ../integration_tests/expr_14.py
+expr14.py * wat PASS
+ START TEST: ../integration_tests/modules_02.py
+../integration_tests/test_numpy_04.py * asr PASS
+ START TEST: ../integration_tests/test_import_02.py
+expr_01.py * asr PASS
+../integration_tests/expr_09.py * asr PASS
+ START TEST: ../integration_tests/import_order_01.py
+../integration_tests/test_numpy_03.py * asr PASS
+ START TEST: ../integration_tests/vec_01.py
+expr12.py * cpp PASS
+ START TEST: ../integration_tests/func_inline_01.py
+../integration_tests/elemental_01.py * asr PASS
+ START TEST: ../integration_tests/func_static_01.py
+../integration_tests/expr_10.py * asr PASS
+ START TEST: loop3.py
+../integration_tests/expr_14.py * asr PASS
+ START TEST: loop4.py
+expr2.py * wat PASS
+ START TEST: assert1.py
+../integration_tests/expr_11.py * cpp PASS
+../integration_tests/expr_01.py * c PASS
+ START TEST: assign2.py
+../integration_tests/modules_02.py * asr PASS
+../integration_tests/test_import_02.py * c PASS
+ START TEST: set1.py
+../integration_tests/import_order_01.py * c PASS
+ START TEST: bool1.py
+expr_01.py * llvm PASS
+../integration_tests/func_static_01.py * c PASS
+ START TEST: global_scope1.py
+loop3.py * ast PASS
+../integration_tests/vec_01.py * asr PASS
+assert1.py * ast PASS
+assign2.py * asr PASS
+ START TEST: c_interop1.py
+../integration_tests/func_inline_01.py * asr PASS
+set1.py * ast PASS
+bool1.py * llvm PASS
+loop4.py * asr PASS
+global_scope1.py * ast PASS
+../integration_tests/expr_11.py * c PASS
+ START TEST: test_end_sep_keywords.py
+expr_01.py * llvm_dbg PASS
+ START TEST: lpython1.py
+../integration_tests/modules_02.py * asr_json PASS
+ START TEST: print_str.py
+loop3.py * asr PASS
+assert1.py * asr PASS
+c_interop1.py * asr PASS
+set1.py * asr PASS
+ START TEST: intent_01.py
+../integration_tests/func_inline_01.py * pass_inline_function_calls PASS
+../integration_tests/vec_01.py * pass_loop_vectorise PASS
+ START TEST: ../integration_tests/test_list_repeat2.py
+bool1.py * wat PASS
+ START TEST: ../integration_tests/test_builtin.py
+test_end_sep_keywords.py * asr PASS
+ START TEST: ../integration_tests/test_complex_01.py
+global_scope1.py * asr PASS
+ START TEST: ../integration_tests/test_complex_02.py
+lpython1.py * llvm PASS
+ START TEST: ../integration_tests/structs_01.py
+c_interop1.py * c PASS
+ START TEST: ../integration_tests/callback_01.py
+assert1.py * llvm PASS
+loop4.py * cpp PASS
+print_str.py * wat PASS
+ START TEST: ../integration_tests/bindc_01.py
+../integration_tests/func_inline_01.py * llvm PASS
+ START TEST: ../integration_tests/bindc_02.py
+intent_01.py * asr PASS
+ START TEST: ../integration_tests/test_builtin_abs.py
+loop3.py * cpp PASS
+ START TEST: ../integration_tests/test_builtin_bool.py
+../integration_tests/test_builtin.py * asr PASS
+ START TEST: ../integration_tests/test_builtin_len.py
+../integration_tests/test_list_repeat2.py * cpp PASS
+ START TEST: ../integration_tests/test_builtin_pow.py
+../integration_tests/structs_01.py * asr PASS
+ START TEST: ../integration_tests/test_builtin_int.py
+../integration_tests/test_complex_02.py * asr PASS
+ START TEST: ../integration_tests/test_builtin_float.py
+../integration_tests/test_complex_01.py * asr PASS
+ START TEST: ../integration_tests/test_builtin_round.py
+../integration_tests/callback_01.py * asr PASS
+ START TEST: ../integration_tests/test_max_min.py
+assert1.py * cpp PASS
+loop4.py * c PASS
+ START TEST: ../integration_tests/expr_05.py
+../integration_tests/bindc_01.py * asr PASS
+../integration_tests/test_builtin_abs.py * asr PASS
+ START TEST: ../integration_tests/test_unary_op_03.py
+../integration_tests/bindc_02.py * asr PASS
+ START TEST: ../integration_tests/test_bool_binop.py
+../integration_tests/test_builtin_len.py * asr PASS
+ START TEST: ../integration_tests/test_issue_518.py
+../integration_tests/test_builtin_pow.py * asr PASS
+../integration_tests/test_builtin_int.py * asr PASS
+ START TEST: ../integration_tests/test_c_interop_01.py
+../integration_tests/test_builtin_bool.py * asr PASS
+ START TEST: ../integration_tests/variable_decl_03.py
+../integration_tests/test_builtin_float.py * asr PASS
+ START TEST: ../integration_tests/print_02.py
+assert1.py * python PASS
+ START TEST: ../integration_tests/print_list_tuple_03.py
+../integration_tests/test_builtin_round.py * asr PASS
+ START TEST: ../integration_tests/print_04.py
+../integration_tests/test_max_min.py * asr PASS
+ START TEST: ../integration_tests/generics_01.py
+../integration_tests/test_issue_518.py * llvm PASS
+../integration_tests/expr_05.py * asr PASS
+ START TEST: ../integration_tests/generics_02.py
+../integration_tests/bindc_01.py * llvm PASS
+ START TEST: ../integration_tests/generics_array_01.py
+../integration_tests/test_c_interop_01.py * asr PASS
+ START TEST: ../integration_tests/generics_list_01.py
+../integration_tests/test_bool_binop.py * asr PASS
+ START TEST: ../integration_tests/global_syms_01.py
+../integration_tests/variable_decl_03.py * c PASS
+ START TEST: tokens/docstring1.py
+../integration_tests/test_builtin_pow.py * cpp PASS
+ START TEST: tokens/comment1.py
+../integration_tests/test_unary_op_03.py * asr PASS
+../integration_tests/print_02.py * asr PASS
+../integration_tests/print_list_tuple_03.py * asr PASS
+../integration_tests/test_issue_518.py * c PASS
+ START TEST: tokens/comment2.py
+../integration_tests/generics_02.py * asr PASS
+ START TEST: tokens/symbols1.py
+../integration_tests/print_04.py * llvm PASS
+ START TEST: tokens/numbers1.py
+tokens/docstring1.py * tokens PASS
+ START TEST: tokens/indent1.py
+../integration_tests/generics_list_01.py * asr PASS
+ START TEST: tokens/indent2.py
+tokens/comment1.py * tokens PASS
+ START TEST: parser/import1.py
+../integration_tests/generics_01.py * asr PASS
+ START TEST: parser/statements1.py
+../integration_tests/generics_array_01.py * asr PASS
+ START TEST: parser/statements2.py
+../integration_tests/test_unary_op_03.py * llvm PASS
+../integration_tests/print_list_tuple_03.py * pass_print_list_tuple PASS
+ START TEST: parser/yield.py
+../integration_tests/global_syms_01.py * asr PASS
+ START TEST: parser/if1.py
+../integration_tests/print_02.py * pass_print_list_tuple PASS
+ START TEST: parser/for1.py
+tokens/comment2.py * tokens PASS
+tokens/numbers1.py * tokens PASS
+ START TEST: parser/comprehension1.py
+tokens/symbols1.py * tokens PASS
+ START TEST: parser/conditional_expr1.py
+tokens/indent1.py * tokens PASS
+ START TEST: parser/try1.py
+parser/statements1.py * ast_new PASS
+ START TEST: parser/function_def1.py
+parser/statements2.py * ast_new PASS
+ START TEST: parser/function_def2.py
+tokens/indent2.py * tokens PASS
+ START TEST: parser/function_def3.py
+parser/import1.py * ast_new PASS
+ START TEST: parser/class_def1.py
+../integration_tests/test_unary_op_03.py * cpp PASS
+ START TEST: parser/class_def2.py
+parser/for1.py * ast_new PASS
+ START TEST: parser/dictionary1.py
+parser/if1.py * ast_new PASS
+ START TEST: parser/with1.py
+tokens/comment2.py * ast_new PASS
+ START TEST: parser/async1.py
+parser/yield.py * ast_new PASS
+ START TEST: parser/slice1.py
+parser/comprehension1.py * ast_new PASS
+parser/conditional_expr1.py * ast_new PASS
+ START TEST: parser/ellipsis1.py
+ START TEST: parser/ellipsis2.py
+parser/class_def1.py * ast_new PASS
+ START TEST: parser/while1.py
+parser/dictionary1.py * ast_new PASS
+ START TEST: parser/string1.py
+parser/function_def3.py * ast_new PASS
+ START TEST: parser/string2.py
+parser/try1.py * ast_new PASS
+ START TEST: parser/string3.py
+parser/async1.py * ast_new PASS
+ START TEST: parser/global1.py
+parser/function_def2.py * ast_new PASS
+ START TEST: parser/if2.py
+parser/with1.py * ast_new PASS
+ START TEST: parser/for2.py
+parser/class_def2.py * ast_new PASS
+ START TEST: parser/boolOp1.py
+parser/slice1.py * ast_new PASS
+ START TEST: parser/lambda1.py
+parser/function_def1.py * ast_new PASS
+ START TEST: parser/lambda2.py
+parser/while1.py * ast_new PASS
+ START TEST: parser/tuple1.py
+parser/ellipsis1.py * ast PASS
+ START TEST: errors/lambda_01.py
+parser/ellipsis2.py * ast_new PASS
+ START TEST: errors/test_bit_length.py
+parser/string3.py * ast_new PASS
+ START TEST: errors/string_01.py
+parser/global1.py * ast PASS
+parser/string2.py * ast_new PASS
+ START TEST: errors/string_02.py
+parser/boolOp1.py * ast_new PASS
+ START TEST: errors/structs_01.py
+parser/lambda1.py * ast_new PASS
+ START TEST: errors/arrays_01.py
+parser/lambda2.py * ast_new PASS
+ START TEST: errors/arrays_02.py
+parser/for2.py * ast_new PASS
+ START TEST: errors/arrays_09.py
+parser/string1.py * ast_new PASS
+parser/if2.py * ast_new PASS
+ START TEST: errors/structs_02.py
+ START TEST: errors/arrays_10.py
+errors/string_02.py * asr PASS
+ START TEST: errors/structs_03.py
+parser/tuple1.py * ast_new PASS
+ START TEST: errors/structs_04.py
+errors/lambda_01.py * asr PASS
+ START TEST: structs_01.py
+errors/arrays_01.py * asr PASS
+ START TEST: errors/structs_06.py
+parser/global1.py * ast_new PASS
+ START TEST: errors/structs_07.py
+errors/string_01.py * asr PASS
+ START TEST: errors/structs_08.py
+errors/structs_01.py * asr PASS
+ START TEST: errors/structs_09.py
+errors/test_bit_length.py * asr PASS
+ START TEST: errors/structs_10.py
+errors/structs_02.py * asr PASS
+ START TEST: errors/const_01.py
+errors/structs_06.py * asr PASS
+ START TEST: errors/const_02.py
+errors/arrays_09.py * asr PASS
+ START TEST: errors/test_compare_01.py
+errors/arrays_02.py * asr PASS
+ START TEST: errors/test_compare_02.py
+errors/structs_07.py * asr PASS
+errors/structs_04.py * asr PASS
+ START TEST: parser/type_comment1.py
+ START TEST: parser/unicode.py
+errors/arrays_10.py * asr PASS
+ START TEST: parser/match_stmt1.py
+errors/structs_10.py * asr PASS
+ START TEST: errors/test_async.py
+errors/structs_08.py * asr PASS
+ START TEST: errors/test_str_indexing.py
+errors/structs_03.py * asr PASS
+ START TEST: errors/test_set_indexing.py
+errors/structs_09.py * asr PASS
+ START TEST: errors/test_str_slicing.py
+errors/const_01.py * asr PASS
+ START TEST: errors/test_str_slicing2.py
+errors/test_compare_01.py * asr PASS
+ START TEST: errors/test_str_slicing3.py
+structs_01.py * asr PASS
+ START TEST: errors/test_str_slicing4.py
+errors/const_02.py * asr PASS
+ START TEST: errors/test_list_slicing.py
+parser/match_stmt1.py * ast_new PASS
+ START TEST: errors/test_const_list_append.py
+errors/test_compare_02.py * asr PASS
+ START TEST: errors/test_const_list_clear.py
+parser/unicode.py * ast_new PASS
+ START TEST: errors/test_const_list_insert.py
+errors/test_str_slicing2.py * asr PASS
+ START TEST: errors/test_const_list_pop.py
+errors/test_str_indexing.py * asr PASS
+parser/type_comment1.py * ast_new PASS
+ START TEST: errors/test_const_list_reverse.py
+ START TEST: errors/test_const_list_remove.py
+errors/test_async.py * asr PASS
+ START TEST: errors/test_annassign_01.py
+errors/test_str_slicing.py * asr PASS
+ START TEST: errors/test_annassign_02.py
+errors/test_set_indexing.py * asr PASS
+ START TEST: errors/test_annassign_03.py
+errors/test_str_slicing3.py * asr PASS
+ START TEST: errors/test_annassign_type_mismatch.py
+errors/test_list_slicing.py * asr PASS
+ START TEST: errors/test_annassign_type_mismatch2.py
+errors/test_const_list_append.py * asr PASS
+ START TEST: errors/test_append_type_mismatch.py
+errors/test_const_list_insert.py * asr PASS
+ START TEST: errors/test_list_concat.py
+errors/test_annassign_02.py * asr PASS
+ START TEST: errors/test_list_count.py
+errors/test_const_list_clear.py * asr PASS
+ START TEST: errors/test_list_index.py
+errors/test_annassign_03.py * asr PASS
+ START TEST: errors/test_list_index2.py
+errors/test_annassign_01.py * asr PASS
+ START TEST: errors/test_list_index3.py
+errors/test_const_list_remove.py * asr PASS
+ START TEST: errors/test_list_index4.py
+errors/test_const_list_reverse.py * asr PASS
+ START TEST: errors/test_list1.py
+errors/test_const_list_pop.py * asr PASS
+ START TEST: errors/test_list2.py
+errors/test_str_slicing4.py * asr PASS
+ START TEST: errors/test_list3.py
+errors/test_annassign_type_mismatch2.py * asr PASS
+ START TEST: errors/test_list4.py
+errors/test_append_type_mismatch.py * asr PASS
+ START TEST: errors/test_set1.py
+errors/test_list_count.py * asr PASS
+ START TEST: errors/test_set2.py
+errors/test_list_concat.py * asr PASS
+ START TEST: errors/test_set3.py
+errors/test_list2.py * asr PASS
+ START TEST: errors/test_set4.py
+errors/test_annassign_type_mismatch.py * asr PASS
+ START TEST: errors/test_pow.py
+errors/test_list3.py * asr PASS
+ START TEST: errors/test_pow1.py
+errors/test_list1.py * asr PASS
+ START TEST: errors/test_pow2.py
+errors/test_list4.py * asr PASS
+errors/test_set1.py * asr PASS
+ START TEST: errors/test_pow3.py
+ START TEST: errors/test_pow4.py
+errors/test_set3.py * asr PASS
+ START TEST: errors/test_operator_01.py
+errors/test_set2.py * asr PASS
+ START TEST: errors/test_ord.py
+errors/test_pow2.py * asr PASS
+ START TEST: errors/test_chr.py
+errors/test_set4.py * asr PASS
+ START TEST: errors/test_assign1.py
+errors/test_pow1.py * asr PASS
+ START TEST: errors/test_assign2.py
+errors/test_pow.py * asr PASS
+ START TEST: errors/test_assign3.py
+errors/test_pow3.py * asr PASS
+ START TEST: errors/test_assign4.py
+errors/test_pow4.py * asr PASS
+ START TEST: errors/test_assign5.py
+errors/test_operator_01.py * asr PASS
+ START TEST: errors/test_assign7.py
+errors/test_ord.py * asr PASS
+ START TEST: errors/test_assign8.py
+errors/test_assign1.py * asr PASS
+ START TEST: errors/test_assign9.py
+errors/test_chr.py * asr PASS
+ START TEST: errors/test_binop1.py
+errors/test_assign2.py * asr PASS
+ START TEST: errors/test_binop2.py
+errors/test_assign3.py * asr PASS
+ START TEST: errors/test_binop3.py
+errors/test_assign4.py * asr PASS
+ START TEST: errors/test_dict1.py
+errors/test_assign5.py * asr PASS
+ START TEST: errors/test_dict_key1.py
+errors/test_assign7.py * asr PASS
+ START TEST: errors/test_dict_key2.py
+errors/test_assign8.py * asr PASS
+ START TEST: errors/test_dict_key3.py
+errors/test_assign9.py * asr PASS
+ START TEST: errors/test_dict_key4.py
+errors/test_binop1.py * asr PASS
+ START TEST: errors/test_dict_key5.py
+errors/test_dict1.py * asr PASS
+ START TEST: errors/test_dict_key6.py
+errors/test_binop3.py * asr PASS
+ START TEST: errors/test_set_object1.py
+errors/test_binop2.py * asr PASS
+ START TEST: errors/test_set_object2.py
+errors/test_dict_key1.py * asr PASS
+ START TEST: errors/test_set_object3.py
+errors/test_dict_key2.py * asr PASS
+ START TEST: errors/test_set_object4.py
+errors/test_dict_key3.py * asr PASS
+ START TEST: errors/test_set_object5.py
+errors/test_dict_key4.py * asr PASS
+ START TEST: errors/test_set_object6.py
+errors/test_dict_key5.py * asr PASS
+ START TEST: errors/test_dict8.py
+errors/test_dict_key6.py * asr PASS
+ START TEST: errors/test_dict9.py
+errors/test_set_object1.py * asr PASS
+ START TEST: errors/test_dict10.py
+errors/test_set_object2.py * asr PASS
+ START TEST: errors/test_dict11.py
+errors/test_set_object3.py * asr PASS
+ START TEST: errors/test_dict12.py
+ START TEST: errors/test_dict13.py
+errors/test_set_object4.py * asr PASS
+errors/test_set_object5.py * asr PASS
+errors/test_set_object6.py * asr PASS
+errors/test_dict8.py * asr PASS
+errors/test_dict9.py * asr PASS
+errors/test_dict12.py * asr PASS
+errors/test_dict11.py * asr PASS
+errors/test_dict10.py * asr PASS
+errors/test_dict13.py * asr PASS
+Traceback (most recent call last):
+  File "D:\zPython\lpython\run_tests.py", line 163, in <module>
+    tester_main("LPython", single_test)
+  File "D:\zPython\lpython\libasr\src\libasr\compiler_tester\tester.py", line 644, in tester_main
+    for f in futures:
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 609, in result_iterator       
+    yield fs.pop().result()
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 446, in result
+    return self.__get_result()
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 391, in __get_result
+    raise self._exception
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\zPython\lpython\run_tests.py", line 150, in single_test
+    run_test(filename, "runtime", "lpython {infile}",
+  File "D:\zPython\lpython\libasr\src\libasr\compiler_tester\tester.py", line 509, in run_test
+    raise RunException(
+compiler_tester.tester.RunException: Testing with reference output failed.
+[31m[1merrors/test_list_index.py * runtime[m[K
+The JSON metadata differs against reference results
+Reference JSON: tests\reference\runtime-test_list_index-0483808.json
+Output JSON:    tests\output\runtime-test_list_index-0483808.json
+Omitting 6 identical items
+ACTUAL != REFERENCE
+Differing items:
+{'stderr': None} != {'stderr': 'runtime-test_list_index-0483808.stderr'}
+{'stdout': 'runtime-test_list_index-0483808.stdout'} != {'stdout': None}
+{'returncode': 10} != {'returncode': 1}
+{'stdout_hash': '68691f3bb73e63e45dc13003eef99e303eaad3f6df2a27fc532f5e14'} != {'stdout_hash': None}
+{'stderr_hash': None} != {'stderr_hash': 'dd3d49b5f2f97ed8f1d27cd73ebca7a8740483660dd4ae702e2048b2'}
+=== UNEXPECTED OUTPUT STDOUT ===
+Did not expect stdout to be generated but it was.
+
+=== ACTUAL OUTPUT (first 10 lines) ===
+The command '"C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.50.35717\bin\Hostx64\x64\link.exe".[30;1H
+
+=== MISSING OUTPUT STDERR ===
+Expected stderr to be generated but it was not.
+
+=== STDERR DIFF ===
+Reference: tests\reference\runtime-test_list_index-0483808.stderr
+Output:    (missing - no stderr produced)
+1d0
+< ValueError: The list does not contain the element: 0
+
+[?9001l[?1004l

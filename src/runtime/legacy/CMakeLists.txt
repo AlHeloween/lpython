@@ -4,6 +4,9 @@ set(SRC
 add_library(lpython_runtime SHARED ${SRC})
 target_include_directories(lpython_runtime BEFORE PUBLIC ${libasr_SOURCE_DIR}/..)
 target_include_directories(lpython_runtime BEFORE PUBLIC ${libasr_BINARY_DIR}/..)
+if (WIN32 AND WITH_RUNTIME_STACKTRACE)
+    target_link_libraries(lpython_runtime PRIVATE Dbghelp)
+endif()
 set_target_properties(lpython_runtime PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/../$<0:>
     LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/../$<0:>
@@ -11,6 +14,9 @@ set_target_properties(lpython_runtime PROPERTIES
 add_library(lpython_runtime_static STATIC ${SRC})
 target_include_directories(lpython_runtime_static BEFORE PUBLIC ${libasr_SOURCE_DIR}/..)
 target_include_directories(lpython_runtime_static BEFORE PUBLIC ${libasr_BINARY_DIR}/..)
+if (WIN32 AND WITH_RUNTIME_STACKTRACE)
+    target_link_libraries(lpython_runtime_static PRIVATE Dbghelp)
+endif()
 set_target_properties(lpython_runtime_static PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/../$<0:>
     LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/../$<0:>

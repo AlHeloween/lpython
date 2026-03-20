@@ -1,0 +1,45 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python=C:\Users\Alexander\micromamba\envs\lpython\python.exe
+lpython=D:\zPython\lpython\lpython.cmd
+cpython_benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf_cpython.py
+lpython_benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf.py
+repeats=2
+mode=binary-runtimelpython_binary=D:\zPython\lpython\integration_tests\benchmark_build\benchmark_math_perf.exe
+
+warmup=0.176823s
+[suite] workloads=factorial_repeat,sqrt_repeat,floor_ceil_repeat,frexp_repeat
+CPython: mean=4.190505s min=4.010071s max=4.370938s
+LPythonBinary: mean=0.191826s min=0.191366s max=0.192285s
+speedup=21.85x
+checksum_factorial_repeat_match=True
+checksum_floor_ceil_repeat_match=True
+checksum_frexp_repeat_match=True
+checksum_sqrt_repeat_match=True

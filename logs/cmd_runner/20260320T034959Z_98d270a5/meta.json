@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "micromamba",
+    "run",
+    "-n",
+    "lpython",
+    "python",
+    "run_tests.py",
+    "--no-color",
+    "--test",
+    "runtime_errors/test_assert_01.py",
+    "--test",
+    "runtime_errors/test_assert_03.py",
+    "--test",
+    "runtime_errors/test_quit_01.py",
+    "--test",
+    "runtime_errors/test_raise_01.py"
+  ],
+  "backend": "windows-conpty",
+  "cols": 120,
+  "created_utc": "2026-03-20T03:49:59Z",
+  "cwd": "D:\\zPython\\lpython",
+  "env_overrides": {},
+  "max_log_mb": 50,
+  "rows": 30,
+  "terminal_host": "conhost",
+  "timeout_s": 3600
+}

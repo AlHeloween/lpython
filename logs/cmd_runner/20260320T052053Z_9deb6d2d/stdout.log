@@ -1,0 +1,82 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\WINDOWS\SYSTEM32\robocopy.exe[?25h
+[?25l-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows[30X
+-------------------------------------------------------------------------------[6;1H  Started : Friday, March 20, 2026 1:20:54 PM
+   Source : D:\zPython\lpython\inst\
+     Dest : D:\US[?25h[?25lESoft\lpython\[10;1H    Files : *.*[11;9H    
+Exc Files : smoke.py[13;9H    smoke.out[14;9H    smoke.out.tmp.o[?25h[?25l[15;9H    smoke.lib[16;9H    math_smoke.py[17;9H    math_smoke.out[18;9H    math_smoke.out.tmp.o[19;9H    math_smoke.lib[20;9H    math_imp[?25h[?25lort_only.py[21;9H    math_import_only.out[22;9H    math_import_only.out.tmp.o[23;9H    [?25h[?25lmath_import_only.lib[24;9H    
+  Options : *.* /S /E /DCOPY:[?25hDA /COPY:DAT /PURGE /MIR /[?25lR:2 /W:1 [27;1H------------------------------------------------------------------------------[29;9H                  16[4CD:\zPython\lpython\inst\[?25h[?25l
+100%  [2C    Newer     [10C    3159[8Cinstall-lpython.ps1[30;7H[?25h
+            Newer                   2326        LICE[?25l100%  [46CNSE[30;7H[?25h[?25l
+100%        Newer                   7706        README.md[30;7H[?25h
+                           4    D:\zPython\lpython\inst\bin\
+            Newer                 37.7 m        lpy[?25l 13.2%[45Cthon-real.exe[30;7H[?25h 26.4% 58.2% 87.3%100%  [?25l
+100%        Newer                   1380        lpython.cmd[30;7H[?25h
+            Newer                  87040        lpython_r[?25l100%  [51Cuntime.dll[30;7H[?25h[?25l
+100%        Newer                  89088        zlib.dll[30;7H[?25h
+                           0    D:\zPython\lpython\inst\share\
+          New Dir          2    D:\zPython\lpython\inst\share\lfortran\[?25l
+100%        New File                 379        dat_convert.py[30;7H[?25h
+            New File                7175        dwarf_convert.py100%  
+                           0    D:\zPython\lpython\inst\share\lpython\
+                          14    D:\zPython\lpython\inst\share\lpython\lib\
+            New File                4368        c[?25l100%  [43Cmath.py[30;7H[?25h
+            New File               24565        lpython_builtin.py100%  
+            New File                7311        lpython_intrinsic_n[?25l100%  [61Cumpy.py[30;7H[?25h
+            New File                4863        lpython_parser.py100%  [?25l
+100%        Newer                  62010        lpython_runtime.lib[30;7H[?25h[?25l
+100%        Newer                 325600        lpython_runtime_static.lib[30;7H[?25h[?25l
+100%        New File               14552        math.py[30;7H[?25h[?25l
+100%        New File                 845        os.py[30;7H[?25h[?25l
+100%        New File                 119        platform.py[30;7H[?25h[?25l
+100%        New File                2348        random.py[30;7H[?25h
+            New File               12058        stat[?25l100%  [46Cistics.py[30;7H[?25h[?25l
+100%        New File                 429        string.py[30;7H[?25h[?25l
+100%        New File                 726        sys.py[30;7H[?25h
+            New File                 125        time.py100%  
+          New Dir          1    D:\zPython\lpython\inst\share\lpython\lib\lpython\
+            New File               25203        lpyth[?25l100%  [47Con.py[30;7H[?25h
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         7         2         5         0         0         0
+   Files :        37        24        13         0         0         0
+   Bytes :   38.83 m   38.42 m   423.8 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           253,403,666 Bytes/sec.
+   Speed :            14,499.874 MegaBytes/min.
+   Ended : Friday, March 20, 2026 1:20:54 PM
+
+[?9001l[?1004l

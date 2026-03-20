@@ -1,0 +1,71 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ START TEST: runtime_errors/test_assert_01.py
+ START TEST: runtime_errors/test_assert_03.py
+ START TEST: runtime_errors/test_quit_01.py
+ START TEST: runtime_errors/test_raise_01.py
+Traceback (most recent call last):
+  File "D:\zPython\lpython\run_tests.py", line 163, in <module>
+    tester_main("LPython", single_test)
+  File "D:\zPython\lpython\libasr\src\libasr\compiler_tester\tester.py", line 683, in tester_main
+    for f in futures:
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 609, in result_iterator
+    yield fs.pop().result()
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 446, in result
+    return self.__get_result()
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 391, in __get_result
+    raise self._exception
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\zPython\lpython\run_tests.py", line 157, in single_test
+    run_test(
+  File "D:\zPython\lpython\libasr\src\libasr\compiler_tester\tester.py", line 542, in run_test
+    raise RunException(
+compiler_tester.tester.RunException: Testing with reference output failed.
+runtime_errors/test_assert_01.py * run_dbg
+The JSON metadata differs against reference results
+Reference JSON: tests\reference\run_dbg-test_assert_01-2f34744.json
+Output JSON:    tests\output\run_dbg-test_assert_01-2f34744.json
+Omitting 10 identical items
+ACTUAL != REFERENCE
+Differing items:
+{'stderr_hash': '1da14d6c59aa1b5a3a152d383ff5690112283324db6d93f3d937bc7c'} != {'stderr_hash': '4811af471c73572b285e9ea0
+01c8689abdd3cb32c717b3cd4876d2669'}
+=== STDERR DIFF ===
+Reference: tests\reference\run_dbg-test_assert_01-2f34744.stderr
+Output:    tests\output\run_dbg-test_assert_01-2f34744.stderr
+1,6d0
+<   File "tests/runtime_errors/test_assert_01.py", line 1
+<     def test():
+<   File "tests/runtime_errors/test_assert_01.py", line 4
+<     test()
+<   File "tests/runtime_errors/test_assert_01.py", line 2
+<     assert False
+

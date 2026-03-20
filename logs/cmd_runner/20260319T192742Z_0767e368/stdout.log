@@ -1,0 +1,43 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\Users\Alexander\AppData\Local\micromamba\micromamba.exe[?25hpython=C:\Users\Alexander\micromamba\envs\lpython\python.exe
+[?25llpython=D:\zPython\lpython\lpython.cmd
+benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf.py
+repeats=2[6;1H[?25hTraceback (most recent call last):
+[?25l  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 102, in <module>
+    raise SystemExit(main())
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 82, in main
+    dt, out = run_once(py_cmd)
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 35, in run_once
+    raise RuntimeError(
+RuntimeError: command failed (1): C:\Users\Alexander\micromamba\envs\lpython\python.exe D:\zPython\lpython\integration_0[15;1HTraceback (most recent call last):
+  File "D:\zPython\lpython\integration_tests\benchmark_math_perf.py", line 4, in <module>
+    from lpython import i32, f64
+ModuleNotFoundError: No module named 'lpython'[20;1H[?25h[?9001l[?1004l

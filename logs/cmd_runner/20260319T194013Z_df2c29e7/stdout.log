@@ -1,0 +1,46 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\Users\Alexander\AppData\Local\micromamba\micromamba.exe[?25hpython=C:\Users\Alexander\micromamba\envs\lpython\python.exe
+[?25llpython=D:\zPython\lpython\lpython.cmd
+cpython_benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf_cpython.py
+lpython_benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf.py
+repeats=2[7;1H[?25h]0;Administrator: C:\Users\Alexander\AppData\Local\micromamba\micromamba.exeTraceback (most recent call last):
+[?25l  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 104, in <module>
+    raise SystemExit(main())
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 89, in main
+    dt, out = run_once(lp_cmd)
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 36, in run_once
+    raise RuntimeError(
+RuntimeError: command failed (2): D:\zPython\lpython\lpython.cmd D:\zPython\lpython\integration_tests\benchmark_math_pe0[31m[1m[16;1Hsemantic error[m[1m: Type mismatch in shorthand operator, the types must be compatible[22m
+  [34m[1m-->[m D:\zPython\lpython\integration_tests\benchmark_math_perf.py:47:9
+   [34m[1m|
+47 |[m         acc += floor(log1p(x) * 1000.0)
+   [34m[1m|[m[9X[31m[1m[9C^^^    ^^^^^^^^^^^^^^^^^^^^^^^^ type mismatch ('f64' and 'i64')[m[1m[23;1HNote[22m: Please report unclear, confusing or incorrect messages as bugs at
+https://github.com/lfortran/lfortran/issues.[26;1H[?25h[?9001l[?1004l

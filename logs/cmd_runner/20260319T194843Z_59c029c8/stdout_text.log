@@ -1,0 +1,41 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python=C:\Users\Alexander\micromamba\envs\lpython\python.exe
+lpython=D:\zPython\lpython\lpython.cmd
+cpython_benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf_cpython.py
+lpython_benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf.py
+repeats=2[suite] workloads=factorial_repeat,sqrt_repeat,floor_ceil_repeat,frexp_repeat
+CPython: mean=12.601784s min=9.640434s max=15.563133s
+LPython: mean=7.321975s min=6.826402s max=7.817547s
+speedup=1.72x
+checksum_factorial_repeat_match=True
+checksum_floor_ceil_repeat_match=True
+checksum_frexp_repeat_match=True
+checksum_sqrt_repeat_match=True

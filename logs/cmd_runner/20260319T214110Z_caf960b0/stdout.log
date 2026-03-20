@@ -1,0 +1,45 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\WINDOWS\system32\cmd.exe[?25h]0;Administrator: C:\WINDOWS\system32\cmd.exe[?25l[33m[1mwarning[m[1m: The module 'math' located in D:\zPython\lpython\src\bin/../runtime/math.py cannot be loaded[22m
+ [34m[1m-->[m integration_tests\test_math_02.py:1:1 - 3:52
+  [34m[1m|
+1 |[m    from math import (sin, cos, tan, pi, sqrt, log, log10, log2, erf, erfc, gamma,
+  [34m[1m|[m    [33m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...[m
+...
+  [34m[1m|
+3 |[m                      tanh, sinh, cosh, hypot, copysign)
+  [34m[1m|[m [33m[1m...^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ imported here[31m[11;1Hsemantic error[m[1m: Type mismatch in assignment, the types must be compatible[22m
+   [34m[1m-->[m D:\zPython\lpython\src\bin/../runtime/math.py:785:1558
+    [34m[1m|
+785 |[m 
+    [34m[1m|[m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      [31m[1m^^^^^   ^^^^^^^ type mismatch ('f64' and 'f32')[30;1H[?25h[m
+[1mNote[22m: Please report unclear, confusing or incorrect messages as bugs at[K
+https://github.com/lfortran/lfortran/issues.
+[?9001l[?1004l

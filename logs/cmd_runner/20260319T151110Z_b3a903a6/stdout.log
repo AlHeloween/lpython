@@ -1,0 +1,34 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\Users\Alexander\AppData\Local\micromamba\micromamba.exe[?25hRuntime debug-info tests are skipped on Windows.
+ START TEST: runtime_errors/test_assert_01.py
+runtime_errors/test_assert_01.py * run_with_dbg   SKIPPED as requested
+TESTS PASSED
+[?9001l[?1004l

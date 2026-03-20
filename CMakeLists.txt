@@ -35,6 +35,47 @@ endif ()
 # For CMAKE_INSTALL_BINDIR:
 include(GNUInstallDirs)
 
+if (WIN32)
+    set(CPACK_GENERATOR "ZIP;7Z")
+    set(CPACK_PACKAGE_FILE_NAME "lpython-${LFORTRAN_VERSION}-Windows-standalone")
+else()
+    set(CPACK_GENERATOR "TBZ2")
+    set(CPACK_PACKAGE_FILE_NAME lpython-${LFORTRAN_VERSION}-${CMAKE_SYSTEM_NAME})
+endif()
+
+set(LPYTHON_INSTALL_SCRIPT "${CMAKE_CURRENT_BINARY_DIR}/install-lpython.ps1")
+set(LPYTHON_UNINSTALL_SCRIPT "${CMAKE_CURRENT_BINARY_DIR}/uninstall-lpython.ps1")
+set(LPYTHON_CMD_WRAPPER "${CMAKE_CURRENT_BINARY_DIR}/lpython.cmd")
+set(LPYTHON_VSDEVCMD_HINT "")
+if (MSVC)
+    file(TO_CMAKE_PATH "${CMAKE_CXX_COMPILER}" _lpython_compiler_path)
+    string(REGEX REPLACE "/VC/Tools/MSVC/.+$" "" _lpython_vs_root "${_lpython_compiler_path}")
+    set(LPYTHON_VSDEVCMD_HINT "${_lpython_vs_root}/Common7/Tools/VsDevCmd.bat")
+    string(REPLACE "/" "\\" LPYTHON_VSDEVCMD_HINT "${LPYTHON_VSDEVCMD_HINT}")
+endif()
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/install-lpython.ps1.in"
+    "${LPYTHON_INSTALL_SCRIPT}" @ONLY
+)
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/uninstall-lpython.ps1.in"
+    "${LPYTHON_UNINSTALL_SCRIPT}" @ONLY
+)
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/lpython.cmd.in"
+    "${LPYTHON_CMD_WRAPPER}" @ONLY
+)
+install(PROGRAMS
+    "${LPYTHON_INSTALL_SCRIPT}"
+    "${LPYTHON_UNINSTALL_SCRIPT}"
+    DESTINATION .
+)
+install(PROGRAMS
+    "${LPYTHON_CMD_WRAPPER}"
+    DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
+install(FILES
+    "${CMAKE_CURRENT_SOURCE_DIR}/README.md"
+    "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE"
+    DESTINATION .
+)
 
 # Build a CPack driven installer package
 #
@@ -42,15 +83,10 @@ include(GNUInstallDirs)
 #
 # cpack
 #
-if(NOT WIN32)
-    include(InstallRequiredSystemLibraries)
-endif()
-set(CPACK_GENERATOR "TBZ2")
 set(CPACK_STRIP_FILES YES)
-set(CPACK_PACKAGE_FILE_NAME lpython-${LFORTRAN_VERSION}-${CMAKE_SYSTEM_NAME})
 include(CPack)
 # So that CPACK_PACKAGE_FILE_NAME prints the correct value below
-set(CPACK_PACKAGE_FILE_NAME lpython-${LFORTRAN_VERSION}-${CMAKE_SYSTEM_NAME})
+set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_FILE_NAME}")
 
 
 if (NOT CMAKE_CXX_STANDARD)
@@ -116,26 +152,70 @@ if (WITH_ZLIB)
     # Find ZLIB with our custom finder before including LLVM since the finder for LLVM
     # might search for ZLIB again and find the shared libraries instead of the static ones
     find_package(StaticZLIB REQUIRED)
+
+    if (WIN32)
+        get_filename_component(_zlib_libdir "${ZLIB_LIBRARY_RELEASE}" DIRECTORY)
+        set(_lpython_zlib_candidates
+            "${_zlib_libdir}/../bin/zlib.dll"
+            "${_zlib_libdir}/../bin/z.dll"
+        )
+        foreach(_lpython_zlib_dll IN LISTS _lpython_zlib_candidates)
+            if (EXISTS "${_lpython_zlib_dll}")
+                install(FILES "${_lpython_zlib_dll}"
+                    DESTINATION ${CMAKE_INSTALL_BINDIR}
+                )
+                break()
+            endif()
+        endforeach()
+    endif()
 endif()
 
 if (WITH_LCOMPILERS_FAST_ALLOC)
     add_definitions("-DLCOMPILERS_FAST_ALLOC=1")
 endif()
 
-# copy runtime files
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/lpython/lpython.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/lpython/lpython.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/cmath.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/cmath.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/lpython_builtin.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/lpython_builtin.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/lpython_intrinsic_numpy.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/lpython_intrinsic_numpy.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/lpython_parser.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/lpython_parser.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/math.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/math.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/os.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/os.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/platform.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/platform.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/random.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/random.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/statistics.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/statistics.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/string.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/string.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/sys.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/sys.py")
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/time.py" "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/time.py")
+set(LPYTHON_RUNTIME_FILES
+    "cmath.py"
+    "lpython_builtin.py"
+    "lpython_intrinsic_numpy.py"
+    "lpython_parser.py"
+    "math.py"
+    "os.py"
+    "platform.py"
+    "random.py"
+    "statistics.py"
+    "string.py"
+    "sys.py"
+    "time.py"
+)
+
+# Copy runtime files into the build tree with LF endings so LPython parses
+# them consistently on Windows.
+foreach(runtime_file IN LISTS LPYTHON_RUNTIME_FILES)
+    configure_file(
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/${runtime_file}"
+        "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/${runtime_file}"
+        @ONLY
+        NEWLINE_STYLE LF
+    )
+endforeach()
+
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/lpython/lpython.py"
+    "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/lpython/lpython.py"
+    @ONLY
+    NEWLINE_STYLE LF
+)
+
+foreach(runtime_file IN LISTS LPYTHON_RUNTIME_FILES)
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/${runtime_file}"
+        DESTINATION share/lpython/lib
+    )
+endforeach()
+
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/src/runtime/lpython/lpython.py"
+    DESTINATION share/lpython/lib/lpython
+)
 
 # LLVM
 set(WITH_LLVM no CACHE BOOL "Build with LLVM support")
@@ -264,6 +344,8 @@ set(WITH_LINKH no
     CACHE BOOL "Build with link.h support")
 set(WITH_MACHO no
     CACHE BOOL "Build with mach-o support")
+set(WITH_WINDOWS_STACKTRACE no
+    CACHE BOOL "Build with Windows DbgHelp stacktrace support")
 set(WITH_STACKTRACE no
     CACHE BOOL "Build with stacktrace support (requires binutils-dev)")
 if (WITH_STACKTRACE)
@@ -280,10 +362,13 @@ if (WITH_STACKTRACE)
     set(HAVE_LFORTRAN_STACKTRACE yes)
 endif()
 if (WITH_RUNTIME_STACKTRACE)
-    set(WITH_UNWIND yes)
     if (APPLE)
+        set(WITH_UNWIND yes)
         set(WITH_MACHO yes)
+    elseif (WIN32)
+        set(WITH_WINDOWS_STACKTRACE yes)
     else()
+        set(WITH_UNWIND yes)
         set(WITH_LINKH yes)
     endif()
     set(HAVE_RUNTIME_STACKTRACE yes)
@@ -302,6 +387,9 @@ endif()
 if (WITH_MACHO)
     find_package(MACHO REQUIRED)
     set(HAVE_LFORTRAN_MACHO yes)
+endif()
+if (WITH_WINDOWS_STACKTRACE)
+    set(HAVE_LFORTRAN_WINDOWS_STACKTRACE yes)
 endif()
 if (WITH_UNWIND)
     set(HAVE_LFORTRAN_UNWIND yes)
@@ -335,6 +423,7 @@ message("WITH_BFD: ${WITH_BFD}")
 message("WITH_DWARFDUMP: ${WITH_DWARFDUMP}")
 message("WITH_LINKH: ${WITH_LINKH}")
 message("WITH_MACHO: ${WITH_MACHO}")
+message("WITH_WINDOWS_STACKTRACE: ${WITH_WINDOWS_STACKTRACE}")
 message("HAVE_LFORTRAN_DEMANGLE: ${HAVE_LFORTRAN_DEMANGLE}")
 message("WITH_LLVM: ${WITH_LLVM}")
 message("WITH_XEUS: ${WITH_XEUS}")

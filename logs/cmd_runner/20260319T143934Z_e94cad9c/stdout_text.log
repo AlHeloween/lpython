@@ -1,0 +1,66 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Found LLVM 11.1.0
+-- Using LLVMConfig.cmake in: C:/Users/Alexander/micromamba/envs/lpython/Library/lib/cmake/llvm
+-- ZLIB LIBRARY PATH: C:/Users/Alexander/micromamba/envs/lpython/Library/libConfiguration results
+---------------------
+LPYTHON_VERSION: 0.1-git
+CPACK_PACKAGE_FILE_NAME: lpython-0.1.1-Source
+C compiler      : C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/cl.exe
+C++ compiler    : C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/cl.exe
+Build type: Release
+C compiler flags      : /MD /O2 /Ob2 /DNDEBUG
+C++ compiler flags    : /MD /O2 /Ob2 /DNDEBUG
+Installation prefix: D:/zPython/lpython/inst
+WITH_LFORTRAN_ASSERT: no
+LPYTHON_STATIC_BIN: no
+LPYTHON_BUILD_TO_WASM: no
+WITH_STACKTRACE: no
+WITH_RUNTIME_STACKTRACE: 
+WITH_UNWIND: no
+WITH_BFD: no
+WITH_DWARFDUMP: no
+WITH_LINKH: no
+WITH_MACHO: no
+HAVE_LFORTRAN_DEMANGLE: no
+WITH_LLVM: yes
+WITH_XEUS: no
+WITH_JSON: no
+WITH_LSP: no
+WITH_FMT: no
+WITH_LFORTRAN_BINARY_MODFILES: YES
+WITH_RUNTIME_LIBRARY: YES
+WITH_WHEREAMI: yes
+WITH_ZLIB: yes
+WITH_TARGET_AARCH64: no
+WITH_TARGET_X86: yes
+-- Configuring done (1.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/zPython/lpython

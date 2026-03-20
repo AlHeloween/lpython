@@ -1,0 +1,86 @@
+[?9001h[?1004h[?25l[2J[m[H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H]0;C:\WINDOWS\system32\cmd.exe[?25h]0;Administrator: C:\WINDOWS\system32\cmd.exe[?25l[33m[1mwarning[m[1m: The module 'math' located in D:\zPython\lpython\src\bin/../runtime/math.py cannot be loaded[22m
+ [34m[1m-->[m integration_tests\test_math.py:1:1 - 3:57
+  [34m[1m|
+1 |[m    from math import (factorial, isqrt, perm, comb, degrees, radians, exp, pow,
+  [34m[1m|[m    [33m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...[m
+...
+  [34m[1m|
+3 |[m                      modf, fsum, prod, dist, frexp, isclose)
+  [34m[1m|[m [33m[1m...^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ imported here[31m[11;1Hsemantic error[m[1m: Type mismatch in assignment, the types must be compatible[22m
+   [34m[1m-->[m D:\zPython\lpython\src\bin/../runtime/math.py:785:6444
+    [34m[1m|
+785 |[m 
+    [34m[1m|[m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           [?25h[30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+[104C                [30;137H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                                                        [30;241H
+                                                                                         [31m[1m^^^^^   ^^^^^^^ type mismatch ([m
+[31m[1m[29;120H('f64' and 'f32')[22m[K[m
+
+
+[1mNote[22m: Please report unclear, confusing or incorrect messages as bugs at[K
+https://github.com/lfortran/lfortran/issues.
+[?9001l[?1004l

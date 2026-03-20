@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+warning: The module 'math' located in D:\zPython\lpython\src\bin/../runtime/math.py cannot be loaded
+ --> integration_tests\test_math_02.py:1:1 - 3:52
+  |
+1 |    from math import (sin, cos, tan, pi, sqrt, log, log10, log2, erf, erfc, gamma,
+  |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...
+...
+  |
+3 |                      tanh, sinh, cosh, hypot, copysign)
+  | ...^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ imported heresemantic error: Type mismatch in assignment, the types must be compatible
+   --> D:\zPython\lpython\src\bin/../runtime/math.py:785:1558
+    |
+785 | 
+    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^^^^^   ^^^^^^^ type mismatch ('f64' and 'f32')
+Note: Please report unclear, confusing or incorrect messages as bugs at
+https://github.com/lfortran/lfortran/issues.

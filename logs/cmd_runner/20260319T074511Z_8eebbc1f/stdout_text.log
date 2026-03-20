@@ -1,0 +1,103 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ START TEST: complex1.py
+ START TEST: complex2.py
+ START TEST: constants1.py
+ START TEST: list1.py
+ START TEST: tuple1.py
+ START TEST: dictionary1.py
+ START TEST: expr1.py
+ START TEST: expr2.py
+ START TEST: expr4.py
+ START TEST: expr6.py
+ START TEST: expr7.py
+ START TEST: expr8.py
+ START TEST: expr10.py
+ START TEST: expr12.py
+ START TEST: expr13.py
+ START TEST: expr14.py
+ START TEST: expr15.py
+Traceback (most recent call last):
+  File "D:\zPython\lpython\run_tests.py", line 163, in <module>
+    tester_main("LPython", single_test)
+  File "D:\zPython\lpython\libasr\src\libasr\compiler_tester\tester.py", line 627, in tester_main
+    for f in futures:
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 609, in result_iterator
+    yield fs.pop().result()
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 446, in result
+    return self.__get_result()
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 391, in __get_result
+    raise self._exception
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\zPython\lpython\run_tests.py", line 62, in single_test
+    run_test(
+  File "D:\zPython\lpython\libasr\src\libasr\compiler_tester\tester.py", line 499, in run_test
+    raise RunException(
+compiler_tester.tester.RunException: Testing with reference output failed.
+complex1.py * ast
+The JSON metadata differs against reference results
+Reference JSON: tests\reference\ast-complex1-800b4bb.json
+Output JSON:    tests\output\ast-complex1-800b4bb.json
+Omitting 6 identical items
+ACTUAL != REFERENCE
+Differing items:
+{'returncode': 9009} != {'returncode': 0}
+{'stdout': None} != {'stdout': 'ast-complex1-800b4bb.stdout'}
+{'stderr_hash': '1c4c45035007b9974b83ef0facd2c38bcbeda8d0582189830df5ce50'} != {'stderr_hash': None}
+{'stdout_hash': None} != {'stdout_hash': '30482dce2a68624ef71ed52e4c4ce4122e1f2efddcef40bee2a3b10e'}
+{'stderr': 'ast-complex1-800b4bb.stderr'} != {'stderr': None}
+=== MISSING OUTPUT STDOUT ===
+Expected stdout to be generated but it was not.
+
+=== EXPECTED CONTENT (first 10 lines from reference) ===
+(Module
+    [(ImportFrom
+        lpython
+        [(c32
+        ())
+        (c64
+        ())]
+        0
+    )
+    (FunctionDef
+
+... (676 more lines, see tests\reference\ast-complex1-800b4bb.stdout)
+
+=== UNEXPECTED OUTPUT STDERR ===
+Did not expect stderr to be generated but it was.
+
+=== STDERR DIFF ===
+Reference: (missing - expected no stderr)
+Output:    tests\output\ast-complex1-800b4bb.stderr
+0a1,2
+> '"$DIR\lpython.exe"' is not recognized as an internal or external command,
+> operable program or batch file.
+

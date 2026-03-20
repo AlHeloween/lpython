@@ -2,6 +2,12 @@
 #include <iostream>
 #include <stdlib.h>
 #include <cstdlib>
+#include <algorithm>
+#include <cctype>
+#include <cstdio>
+#include <filesystem>
+#include <functional>
+#include <sstream>
 
 #define CLI11_HAS_FILESYSTEM 0
 #include <bin/CLI11.hpp>
@@ -72,6 +78,132 @@ std::string remove_path(const std::string& filename) {
     size_t lastslash = filename.find_last_of("/");
     if (lastslash == std::string::npos) return filename;
     return filename.substr(lastslash+1);
+}
+
+std::string trim_copy(const std::string &value) {
+    const std::string whitespace = " \t\r\n";
+    const size_t begin = value.find_first_not_of(whitespace);
+    if (begin == std::string::npos) return "";
+    const size_t end = value.find_last_not_of(whitespace);
+    return value.substr(begin, end - begin + 1);
+}
+
+std::string to_lower_copy(std::string value) {
+    std::transform(value.begin(), value.end(), value.begin(),
+        [](unsigned char c) { return static_cast<char>(std::tolower(c)); });
+    return value;
+}
+
+std::string quote_windows_path(const std::string &path) {
+    if (path.find(' ') == std::string::npos) {
+        return path;
+    }
+    return "\"" + path + "\"";
+}
+
+std::string capture_command_output(const std::string &command) {
+    std::string output;
+#ifdef _WIN32
+    FILE *pipe = _popen(command.c_str(), "r");
+#else
+    FILE *pipe = popen(command.c_str(), "r");
+#endif
+    if (!pipe) {
+        return output;
+    }
+
+    char buffer[512];
+    while (fgets(buffer, sizeof(buffer), pipe) != nullptr) {
+        output += buffer;
+    }
+
+#ifdef _WIN32
+    _pclose(pipe);
+#else
+    pclose(pipe);
+#endif
+    return trim_copy(output);
+}
+
+std::string find_executable_on_path(const std::vector<std::string> &names,
+        const std::function<bool(const std::string&)> &predicate) {
+    char *path_env = std::getenv("PATH");
+    if (!path_env) {
+        return "";
+    }
+
+    std::stringstream ss(path_env);
+    std::string entry;
+    while (std::getline(ss, entry, ';')) {
+        entry = trim_copy(entry);
+        if (entry.empty()) {
+            continue;
+        }
+        for (const auto &name: names) {
+            std::filesystem::path candidate = std::filesystem::path(entry) / name;
+            if (std::filesystem::exists(candidate)) {
+                std::string candidate_str = candidate.string();
+                if (!predicate || predicate(candidate_str)) {
+                    return candidate_str;
+                }
+            }
+        }
+    }
+    return "";
+}
+
+std::string find_windows_linker(bool prefer_msvc=false) {
+    if (char *env_linker = std::getenv("LPYTHON_LINKER")) {
+        return quote_windows_path(env_linker);
+    }
+    if (char *env_linker = std::getenv("LFORTRAN_LINKER_PATH")) {
+        return quote_windows_path(env_linker);
+    }
+
+    std::string linker;
+    if (!prefer_msvc) {
+        linker = find_executable_on_path({"lld-link.exe"},
+            [](const std::string &) { return true; });
+        if (!linker.empty()) {
+            return quote_windows_path(linker);
+        }
+    }
+
+    linker = find_executable_on_path({"link.exe"}, [](const std::string &candidate) {
+        std::string lower = to_lower_copy(candidate);
+        return lower.find("\\microsoft visual studio\\") != std::string::npos
+            || lower.find("\\vc\\tools\\msvc\\") != std::string::npos
+            || lower.find("\\buildtools\\") != std::string::npos;
+    });
+    if (!linker.empty()) {
+        return quote_windows_path(linker);
+    }
+
+    const std::vector<std::string> vswhere_locations = {
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\vswhere.exe",
+        "C:\\Program Files\\Microsoft Visual Studio\\Installer\\vswhere.exe"
+    };
+    for (const auto &vswhere: vswhere_locations) {
+        if (!std::filesystem::exists(vswhere)) {
+            continue;
+        }
+        std::string command = quote_windows_path(vswhere)
+            + " -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64"
+            + " -find VC\\Tools\\MSVC\\**\\bin\\Hostx64\\x64\\link.exe";
+        linker = capture_command_output(command);
+        if (!linker.empty()) {
+            return quote_windows_path(linker);
+        }
+    }
+
+    linker = find_executable_on_path({"link.exe"}, [](const std::string &candidate) {
+        return to_lower_copy(candidate).find("\\git\\") == std::string::npos;
+    });
+    if (!linker.empty()) {
+        return quote_windows_path(linker);
+    }
+
+    return "link";
 }
 
 std::string get_kokkos_dir()
@@ -1500,11 +1632,21 @@ int link_executable(const std::vector<std::string> &infiles,
 
     if (backend == Backend::llvm) {
         if (t == "x86_64-pc-windows-msvc") {
-            std::string cmd = "link /NOLOGO /OUT:" + outfile + " ";
+            std::string cmd = find_windows_linker()
+                + " /NOLOGO /OUT:" + outfile + " ";
+            if (compiler_options.emit_debug_info) {
+                cmd += "/DEBUG ";
+            }
             for (auto &s : infiles) {
                 cmd += s + " ";
             }
-            cmd += runtime_library_dir + "\\lpython_runtime_static.lib > NUL";
+            cmd += runtime_library_dir + "\\lpython_runtime_static.lib ";
+#ifdef HAVE_RUNTIME_STACKTRACE
+            if (compiler_options.emit_debug_info) {
+                cmd += "Dbghelp.lib ";
+            }
+#endif
+            cmd += "> NUL 2> NUL";
             int err = system(cmd.c_str());
             if (err) {
                 std::cout << "The command '" + cmd + "' failed." << std::endl;
@@ -2265,6 +2407,19 @@ int main(int argc, char *argv[])
                 if (compiler_options.emit_debug_info) {
                     // TODO: Replace the following hardcoded part
                     std::string cmd = "";
+#ifdef _WIN32
+                    std::string dwarfdump = "llvm-dwarfdump.exe";
+                    char *env_CONDA_PREFIX = std::getenv("CONDA_PREFIX");
+                    if (env_CONDA_PREFIX) {
+                        dwarfdump = std::string(env_CONDA_PREFIX)
+                            + "\\Library\\bin\\llvm-dwarfdump.exe";
+                    }
+                    cmd += "\"" + dwarfdump + "\" --debug-line " + basename + ".out > ";
+                    cmd += basename + "_ldd.txt && python libasr/src/libasr/dwarf_convert.py "
+                        + basename + "_ldd.txt " + basename + "_lines.txt "
+                        + basename + "_lines.dat && python libasr/src/libasr/dat_convert.py "
+                        + basename + "_lines.dat";
+#else
 #ifdef HAVE_LFORTRAN_MACHO
                     cmd += "dsymutil " + basename + ".out && llvm-dwarfdump --debug-line "
                         + basename + ".out.dSYM > ";
@@ -2275,6 +2430,7 @@ int main(int argc, char *argv[])
                         + basename + "_ldd.txt ../../../" + basename + "_lines.txt ../../../"
                         + basename + "_lines.dat && ./dat_convert.py ../../../"
                         + basename + "_lines.dat)";
+#endif
                     int status = system(cmd.c_str());
                     if ( status != 0 ) {
                         std::cerr << "Error in creating the files used to generate "

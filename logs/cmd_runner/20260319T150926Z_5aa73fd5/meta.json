@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "micromamba",
+    "run",
+    "-n",
+    "lpython",
+    "cmake",
+    "-S",
+    ".",
+    "-B",
+    ".",
+    "-DWITH_RUNTIME_STACKTRACE=yes"
+  ],
+  "backend": "windows-conpty",
+  "cols": 120,
+  "created_utc": "2026-03-19T15:09:26Z",
+  "cwd": "D:\\zPython\\lpython",
+  "env_overrides": {},
+  "max_log_mb": 50,
+  "rows": 30,
+  "terminal_host": "conhost",
+  "timeout_s": 1800
+}

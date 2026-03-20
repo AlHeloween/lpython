@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "micromamba",
+    "run",
+    "-n",
+    "lpython",
+    "cmake",
+    "--build",
+    ".",
+    "--target",
+    "install"
+  ],
+  "backend": "windows-conpty",
+  "cols": 120,
+  "created_utc": "2026-03-19T18:51:06Z",
+  "cwd": "D:\\zPython\\lpython",
+  "env_overrides": {},
+  "max_log_mb": 50,
+  "rows": 30,
+  "terminal_host": "conhost",
+  "timeout_s": 3600
+}

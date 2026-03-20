@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Found LLVM 11.1.0
+-- Using LLVMConfig.cmake in: C:/Users/Alexander/micromamba/envs/lpython/Library/lib/cmake/llvm
+-- ZLIB LIBRARY PATH: C:/Users/Alexander/micromamba/envs/lpython/Library/lib
+CMake Error at C:/Users/Alexander/micromamba/envs/lpython/Library/share/cmake-3.29/Modules/FindPackageHandleStandardArg:
+  Could NOT find LINKH (missing: LINK_INCLUDE_DIR)
+Call Stack (most recent call first):
+  C:/Users/Alexander/micromamba/envs/lpython/Library/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake:600 ()
+  cmake/FindLINKH.cmake:4 (find_package_handle_standard_args)
+  CMakeLists.txt:360 (find_package)-- Configuring incomplete, errors occurred!

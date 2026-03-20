@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "cmd",
+    "/c",
+    "\"call",
+    "\"\"C:\\Program",
+    "Files\\Microsoft",
+    "Visual",
+    "Studio\\18\\Community\\Common7\\Tools\\VsDevCmd.bat\"\"",
+    "-arch=x64",
+    "&&",
+    "cmake",
+    "--build",
+    ".",
+    "--target",
+    "lpython\""
+  ],
+  "backend": "windows-conpty",
+  "cols": 120,
+  "created_utc": "2026-03-19T21:22:14Z",
+  "cwd": "D:\\zPython\\lpython",
+  "env_overrides": {},
+  "max_log_mb": 50,
+  "rows": 30,
+  "terminal_host": "conhost",
+  "timeout_s": 1800
+}

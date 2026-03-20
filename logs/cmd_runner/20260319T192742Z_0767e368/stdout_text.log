@@ -1,0 +1,43 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python=C:\Users\Alexander\micromamba\envs\lpython\python.exe
+lpython=D:\zPython\lpython\lpython.cmd
+benchmark=D:\zPython\lpython\integration_tests\benchmark_math_perf.py
+repeats=2Traceback (most recent call last):
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 102, in <module>
+    raise SystemExit(main())
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 82, in main
+    dt, out = run_once(py_cmd)
+  File "D:\zPython\lpython\tools\run_math_benchmark.py", line 35, in run_once
+    raise RuntimeError(
+RuntimeError: command failed (1): C:\Users\Alexander\micromamba\envs\lpython\python.exe D:\zPython\lpython\integration_0Traceback (most recent call last):
+  File "D:\zPython\lpython\integration_tests\benchmark_math_perf.py", line 4, in <module>
+    from lpython import i32, f64
+ModuleNotFoundError: No module named 'lpython'

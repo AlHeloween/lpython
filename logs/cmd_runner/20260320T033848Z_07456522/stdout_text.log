@@ -1,0 +1,94 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ START TEST: runtime_errors/test_assert_01.py
+ START TEST: runtime_errors/test_assert_03.py
+ START TEST: runtime_errors/test_quit_01.py
+ START TEST: runtime_errors/test_raise_01.py
+Traceback (most recent call last):
+  File "D:\zPython\lpython\run_tests.py", line 163, in <module>
+    tester_main("LPython", single_test)
+  File "D:\zPython\lpython\libasr\src\libasr\compiler_tester\tester.py", line 683, in tester_main
+    for f in futures:
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 609, in result_iterator
+    yield fs.pop().result()
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 446, in result
+    return self.__get_result()
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\_base.py", line 391, in __get_result
+    raise self._exception
+  File "C:\Users\Alexander\micromamba\envs\lpython\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\zPython\lpython\run_tests.py", line 157, in single_test
+    run_test(
+  File "D:\zPython\lpython\libasr\src\libasr\compiler_tester\tester.py", line 542, in run_test
+    raise RunException(
+compiler_tester.tester.RunException: Testing with reference output failed.
+runtime_errors/test_assert_01.py * run_dbg
+The JSON metadata differs against reference results
+Reference JSON: tests\reference\run_dbg-test_assert_01-2f34744.json
+Output JSON:    tests\output\run_dbg-test_assert_01-2f34744.json
+Omitting 7 identical items
+ACTUAL != REFERENCE
+Differing items:
+{'stdout_hash': '87eb5859e0ee742ed2ea25e6ba6d7133a5e2d5cfb9b94a0b03050ca3'} != {'stdout_hash': None}
+{'stdout': 'run_dbg-test_assert_01-2f34744.stdout'} != {'stdout': None}
+{'stderr_hash': '98f83c7597917db480a2b85ce410f63c9604fdc5423b9c9bb22ef450'} != {'stderr_hash': '4811af471c73572b285e9ea}
+{'returncode': 10} != {'returncode': 1}
+=== UNEXPECTED OUTPUT STDOUT ===
+Did not expect stdout to be generated but it was.
+
+=== ACTUAL OUTPUT (first 10 lines) ===
+The command '"C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\Llvm\x64\bin\lld-link.exe" /NOLOGO /OUT:te.
+
+=== STDERR DIFF ===
+Reference: tests\reference\run_dbg-test_assert_01-2f34744.stderr
+Output:    tests\output\run_dbg-test_assert_01-2f34744.stderr
+1,7c1,13
+<   File "tests/runtime_errors/test_assert_01.py", line 1
+<     def test():
+<   File "tests/runtime_errors/test_assert_01.py", line 4
+<     test()
+<   File "tests/runtime_errors/test_assert_01.py", line 2
+<     assert False
+< AssertionError
+---
+> lld-link: error: undefined symbol: __declspec(dllimport) SymSetOptions
+> >>> referenced by lpython_runtime_static.lib(lfortran_intrinsics.c.obj):($LN121)
+> >>> referenced by lpython_runtime_static.lib(lfortran_intrinsics.c.obj):(windows_stacktrace_ready)
+> >>> referenced by lpython_runtime_static.lib(lfortran_intrinsics.c.obj):($LN29)
+>
+> lld-link: error: undefined symbol: __declspec(dllimport) SymGetLineFromAddr64
+> >>> referenced by lpython_runtime_static.lib(lfortran_intrinsics.c.obj):($LN121)
+> >>> referenced by lpython_runtime_static.lib(lfortran_intrinsics.c.obj):($LN29)
+>
+> lld-link: error: undefined symbol: __declspec(dllimport) SymInitialize
+> >>> referenced by lpython_runtime_static.lib(lfortran_intrinsics.c.obj):($LN121)
+> >>> referenced by lpython_runtime_static.lib(lfortran_intrinsics.c.obj):(windows_stacktrace_ready)
+> >>> referenced by lpython_runtime_static.lib(lfortran_intrinsics.c.obj):($LN29)
+
