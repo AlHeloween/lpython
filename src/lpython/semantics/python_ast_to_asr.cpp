@@ -6133,7 +6133,7 @@ public:
             } else if (ASR::is_a<ASR::ListLen_t>(*for_iter_type)) {
                 loop_src_var_element = ASR::make_ListItem_t(
                             al, x.base.base.loc, loop_src_var,
-                            ASRUtils::EXPR(explicit_iter_var), ASRUtils::get_contained_type(loop_src_var_ttype), nullptr);
+                            ASRUtils::EXPR(index_plus_one), ASRUtils::get_contained_type(loop_src_var_ttype), nullptr);
             }
             auto loop_target_assignment = ASRUtils::make_Assignment_t_util(al, x.base.base.loc, target, 
                                                             ASRUtils::EXPR(loop_src_var_element), nullptr, false, false);

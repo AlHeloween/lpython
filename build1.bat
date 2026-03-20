@@ -7,4 +7,4 @@ cmake ^
     -DCMAKE_INSTALL_PREFIX=%cd%/inst ^
     . -G "Ninja"
 
-cmake --build . --config Release -j8 --target install
+cmake --build . --config Release -j4 --target install
