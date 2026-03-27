@@ -64,7 +64,7 @@ Index runs now print live progress:
 
 Code chunks also carry:
 - Tree-sitter structural tags: `symbol_kind:*`, `symbol_name:*`
-- Semgrep tags on supported languages: e.g. `function`, `class`, `http`, `config_env`, `auth`
+- (Semgrep tags were removed from indexing for performance; `semgrep_tags_enabled` config flag is ignored)
 
 Use `tools/adm.exe --rag settings` to inspect the effective `include_globs`, `add_patterns`, `exclude_globs`, `exclude_patterns`, and `cmd_runner_logs_enabled` values.
 
