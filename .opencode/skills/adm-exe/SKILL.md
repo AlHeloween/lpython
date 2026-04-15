@@ -61,8 +61,8 @@ Invoke as: `tools/adm <command>` (or `tools/adm.exe <command>` on Windows; or `u
 | `--query <index_name> <request...>` | Query a RAG index and print top hits (file + line ranges). | When you want an exact, line-referenced retrieval result. In bundled installs, `adm.exe` forwards this to `adm-rag.exe`. |
 | `--mcp` / `--mcp-http [host] [port]` | Run adm as an MCP server (stdio or HTTP). Startup validates local embedder readiness; `initialize` reports the resolved RAG DB path and configured embedding backend/model/device. | When you want to expose RAG tools to an MCP-capable client or run it as a local service. In bundled installs, `adm.exe` forwards this to `adm-rag.exe`. |
 | `--log-insight <message>` | Appends a timestamped entry to `insights.md`. | Optional logging of a decision or finding. |
-| `--check-tools` | Checks that rg, sed, semgrep, tree-sitter are available. | To diagnose missing tools. |
-| `--sync-semgrepignore` | Mirrors `.gitignore` into `.semgrepignore`. | When .gitignore changed and you want Semgrep to match. |
+| `--check-tools` | Checks that rg, sed, astgrep, tree-sitter are available. | To diagnose missing tools. |
+| `--sync-astgrepignore` | Mirrors `.gitignore` into `.astgrepignore`. | When .gitignore changed and you want astgrep to match. |
 | `--log-progress [path]` | Appends progress entries (default `_progress_log.md`). | To record that a command ran and its outcome. |
 | `--dry-run` | Simulates actions without writing to disk. | With `--apply` or other mutating commands to preview. |
 

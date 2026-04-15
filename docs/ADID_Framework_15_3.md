@@ -398,7 +398,7 @@ This document defines a formal, universal framework for project development and 
                   <git_head>REPLACE_WITH_GIT_HEAD</git_head>
                   <uv_lock_md5>REPLACE_WITH_UV_LOCK_MD5</uv_lock_md5>
                   <python>REPLACE_WITH_PYTHON</python>
-                  <semgrep>REPLACE_WITH_SEMGREP</semgrep>
+                  <ast_grep_py>REPLACE_WITH_AST_GREP</ast_grep_py>
                   <tree_sitter>REPLACE_WITH_TREE_SITTER</tree_sitter>
                   <tree_sitter_language_pack>REPLACE_WITH_TREE_SITTER_LANGUAGE_PACK</tree_sitter_language_pack>
                 </created_with>
@@ -582,11 +582,11 @@ This document defines a formal, universal framework for project development and 
 9.  **DEEPLY** understand **`adm`** CLI source code, capabilities, and command-line arguments.
 
 ### Implementation Notes (v5.0)
-- Semgrep-first refactoring. Structured rewrites use Semgrep with single-file inline rules. Scans run in no‑VCS mode and set `SEMGREP_NO_GIT=1` in-process to avoid environment-dependent behavior.
-- Ignore mirroring. Maintain `.semgrepignore` as a mirror of `.gitignore`. Use `tools/adm --sync-semgrepignore` (or `uv run adm --sync-semgrepignore` when tools/adm not present) to synchronize patterns and keep static analysis aligned with VCS ignores.
+- Ast‑grep-first refactoring. Structured rewrites use ast‑grep with single-file inline rules. Scans run in no‑VCS mode to avoid environment-dependent behavior.
+- Ignore mirroring. Maintain `.astgrepignore` as a mirror of `.gitignore`. Use `tools/adm --sync-astgrepignore` (or `uv run adm --sync-astgrepignore` when tools/adm not present) to synchronize patterns and keep static analysis aligned with VCS ignores.
 - Tree-sitter validation (optional). For warn-only syntax checks, use `tree_sitter>=0.25` with `tree_sitter_language_pack>=0.13.0`. Do not downgrade to obsolete bundles (e.g., `tree-sitter-languages`), which are incompatible with modern Tree-sitter.
 - Verification scope. `--verify-all` respects `.gitignore` for traversal. Keep ignores curated to prune environment, build, and log artifacts from audits.
-- Diagnostics. Each Semgrep scan appends a JSON line with timing and match counts to `logs/<timestamp>_semgrep_test_timings.log` to aid performance tracing without enabling verbose engine logging.
+- Diagnostics. Each ast‑grep scan appends a JSON line with timing and match counts to `logs/<timestamp>_astgrep_test_timings.log` to aid performance tracing without enabling verbose engine logging.
 
 ## III. Development Guidelines
 1. **Python**:	`PEP-8`
